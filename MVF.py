@@ -3,7 +3,6 @@ import numpy as np
 import pandas as pd
 import scipy.optimize as sco
 import streamlit as st
-import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from plotly.validators.scatter.marker import SymbolValidator
