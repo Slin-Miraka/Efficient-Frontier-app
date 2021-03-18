@@ -13,7 +13,7 @@ st.sidebar.header('Welcome！ o(*￣▽￣*)ブ')
 
 
 
-
+author = "Miraka"
 RISKY_ASSETS = get_list()
 N_PORTFOLIOS =  get_portf_num()
 N_DAYS = 252
@@ -21,7 +21,10 @@ RISKY_ASSETS.sort()
 START_DATE,END_DATE = get_date()
 n_assets = len(RISKY_ASSETS)
 
+st.title("Efficient Frontier APP")
+st.write("Edit by: ",author)
 st.write("**Current components of the portfolio**",RISKY_ASSETS)
+
 
 prices_df = yf.download(RISKY_ASSETS, start=START_DATE,end=END_DATE, adjusted=True)
 
