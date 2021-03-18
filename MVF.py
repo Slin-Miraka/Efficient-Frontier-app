@@ -32,8 +32,12 @@ if st.button("View stock prices change"):
     fig = go.Figure()
     for idx, col_name in enumerate(prices_df['Adj Close']):
         fig.add_trace(go.Scatter(x=prices_df['Adj Close'].index, y=prices_df.iloc[:,idx]
-                    ,name=prices_df['Adj Close'].columns[idx]))
+                    ,name=prices_df['Adj Close'].columns[idx]
+                     
+                    ))
     fig.update_layout(height=500, width=800, title_text="Stock prices change")
+    fig.update_xaxes(title_text="Date")
+    fig.update_yaxes(title_text="Stock price $")
               
     st.plotly_chart(fig)
 
@@ -224,6 +228,8 @@ if st.button("Plotting the Efficient Frontier"):
                             ))
 
     fig.update_layout(height=500, width=800, title_text="{} Portforlio Efficient Frontier".format(N_PORTFOLIOS))
+    fig.update_xaxes(title_text="Annualize Volatility (σ)")
+    fig.update_yaxes(title_text="Annualize Expected return")
                 
     st.plotly_chart(fig)
     
