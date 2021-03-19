@@ -30,21 +30,28 @@ cn_code = RISKY_ASSETS[:t]
 us_code = RISKY_ASSETS[t:]
 
 
-prices_df = yf.download(us_code, start=START_DATE,end=END_DATE, adjusted=True)
-prices_df_cn = get_stock_dataframe(cn_code, start=START_DATE,end=END_DATE)
 
 
 
-prices_df = prices_df['Adj Close']
-if prices_df_cn.empty == True:
-    prices_df = prices_df
-elif prices_df.empty == True:
+
+
+if cn_code == []:
+    prices_df = yf.download(us_code, start=START_DATE,end=END_DATE, adjusted=True)
+    prices_df = prices_df['Adj Close']
+elif us_code == []:
+    prices_df_cn = get_stock_dataframe(cn_code, start=START_DATE,end=END_DATE)
     prices_df = prices_df_cn
 elif len(us_code) == 1:
+    prices_df = yf.download(us_code, start=START_DATE,end=END_DATE, adjusted=True)
+    prices_df = prices_df['Adj Close']
+    prices_df_cn = get_stock_dataframe(cn_code, start=START_DATE,end=END_DATE)
     prices_df = prices_df.rename(us_code[0])
     prices_df = prices_df.to_frame().merge(prices_df_cn,left_on=prices_df.index,right_on=prices_df_cn.index,how= 'left')
     prices_df = prices_df.set_index("key_0")
 else:
+    prices_df = yf.download(us_code, start=START_DATE,end=END_DATE, adjusted=True)
+    prices_df = prices_df['Adj Close']
+    prices_df_cn = get_stock_dataframe(cn_code, start=START_DATE,end=END_DATE)
     prices_df = prices_df_cn.merge(prices_df,left_on=prices_df_cn.index,right_on=prices_df.index,how= 'left')
     prices_df = prices_df.set_index("key_0")
 
