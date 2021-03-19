@@ -1,14 +1,20 @@
 import streamlit as st
 import datetime
+import akshare as ak
+import unicodedata
+import pandas as pd
+import numpy as np
 
-list_ = ['FB', 'TSLA', 'TWTR', 'MSFT']
+list_ = ['FB', '600021','600519']
 
 
 def get_list():
     symbol = st.sidebar.text_input("Input Tickers")
+    st.sidebar.write("You can add both **Chinese** and **US** Tickers to the portfolio")
+    st.sidebar.write("eg. Input **'600519'** for Chinese tickers or **'MCD'** for US tickers")
     if st.sidebar.button("Add Tickers"):
         list_.append(symbol)
-    drop = st.sidebar.selectbox("Drop a Ticker from the current portfolio",list_)
+    drop = st.sidebar.selectbox("Drop a Ticker from the current portfolio",np.sort(list_))
     if st.sidebar.button("Drop Tickers"):   
         list_.remove(drop)
     return list_
@@ -28,3 +34,23 @@ def get_portf_num():
     return portf_num
     
 
+def get_stock_dataframe(stock_list,return_data = "close",start='20191210',end='20201210'):
+    names = [str(i) for i in stock_list]
+    codes = ["sh"+str(i) if str(i)[0] == "6" else "sz"+str(i) for i in stock_list]
+    data=pd.DataFrame({name:(ak.stock_zh_a_daily(symbol=code, start_date=start, end_date=end, adjust="qfq").loc[:,return_data]) for code,name in zip(codes,names)})
+    return data
+
+def is_number(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        pass
+ 
+    try:
+        unicodedata.numeric(s)
+        return True
+    except (TypeError, ValueError):
+        pass
+ 
+    return False
