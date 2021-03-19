@@ -45,7 +45,6 @@ elif len(us_code) == 1:
     prices_df = prices_df.to_frame().merge(prices_df_cn,left_on=prices_df.index,right_on=prices_df_cn.index,how= 'left')
     prices_df = prices_df.set_index("key_0")
 else:
-    prices_df = prices_df.rename(us_code[0])
     prices_df = prices_df_cn.merge(prices_df,left_on=prices_df_cn.index,right_on=prices_df.index,how= 'left')
     prices_df = prices_df.set_index("key_0")
 
