@@ -24,6 +24,8 @@ st.title("Efficient Frontier APP")
 st.write("Edit by: ",author)
 st.write("**Current components of the portfolio**",RISKY_ASSETS)
 
+if RISKY_ASSETS == []:
+    st.error('Error: Please add at least two assets to the portfolio')
 
 t = sum([is_number(i) for i in RISKY_ASSETS])
 cn_code = RISKY_ASSETS[:t]
@@ -57,7 +59,11 @@ else:
 
 returns_df = np.log(prices_df.pct_change() + 1).dropna()
 
-if len(RISKY_ASSETS) < 2:
+
+
+if len(RISKY_ASSETS) != len(set(RISKY_ASSETS)):
+    st.error('Error: Please remove the duplicate asset from the portfolio')
+elif len(RISKY_ASSETS) < 2:
     st.error('Error: The portfolio is expected to include at least two assets.')
 else:
     if st.button("View stock returns over the period"):
