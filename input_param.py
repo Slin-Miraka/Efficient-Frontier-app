@@ -10,8 +10,8 @@ list_ = ['FB', '600021','600519']
 
 def get_list():
     symbol = st.sidebar.text_input("Input Tickers")
-    st.sidebar.write("You can add both **Chinese** and **US** Tickers to the portfolio")
-    st.sidebar.write("eg. Input **'600519'** for Chinese tickers or **'MCD'** for US tickers")
+    st.sidebar.write("You can add **US** Tickers to the portfolio")
+    st.sidebar.write("eg. Input **'MCD'** for US tickers")
     if st.sidebar.button("Add Tickers"):
         list_.append(symbol)
     drop = st.sidebar.selectbox("Drop a Ticker from the current portfolio",np.sort(list_))
