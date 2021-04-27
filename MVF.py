@@ -301,3 +301,10 @@ else:
         st.write("**Maximum Sharpe ratio portfolio -- Weights**")
         st.write(max_sharp.T)
 
+st.write("")
+st.write("")
+st.write("**check out this for the codes in this app** [link](https://github.com/Slin-Miraka/Efficient-Frontier-app/edit/main/MVF.py)")
+st.write("**check out this for Fama French 3 factors Analysis app** [link](https://share.streamlit.io/slin-miraka/fama-french/main/ff.py)")
+email = "slin3137@uni.sydney.edu.au"
+st.write("**My E-mail**: ", email)
+
