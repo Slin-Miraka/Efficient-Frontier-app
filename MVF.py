@@ -169,7 +169,7 @@ else:
 
 
         #4. Define the considered range of returns:
-        rtns_range = np.linspace(min_ret, max_ret, 200)
+        rtns_range = np.linspace(min_ret, max_ret, 300)
 
         #5. Calculate the Efficient Frontier:
         efficient_portfolios = get_efficient_frontier(avg_returns,
