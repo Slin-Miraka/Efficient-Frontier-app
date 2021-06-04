@@ -245,7 +245,7 @@ else:
                                   #  ,line=dict(width=1
                                    #         ,color = 3 
                                    #             )
-                                    )
+                                  #  )
                         ))
         fig.add_trace(go.Scatter(x= [0], y=[RF]
                 ,name="Risk-free asset"
