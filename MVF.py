@@ -260,26 +260,12 @@ else:
                             )
                 ))
         fig.add_trace(go.Scatter(x=vols_range, y=rtns_range
-                                ,name="Edge"
-                                ,mode="lines+markers"
-                                ,opacity=0.9
-                                ,marker=dict(size=3
-                                            ,color = 1
-                                            ,line=dict(width=1
-                                                    ,color = 1
-                                                        )
-                                            )
-                                ))
-
-        fig.add_trace(go.Scatter(x=new_vols_range, y=new_rtns_range
                                 ,name="Efficient Frontier"
                                 ,mode="lines+markers"
-                                ,opacity=1
-                                ,marker=dict(size=3
-                                            ,line=dict(width=2
-                                                        )
-                                            )
-                                )) 
+                                ,opacity=0.9
+
+                                ))
+
         fig.add_trace(go.Scatter(x=np.sqrt(returns_df.var() * N_DAYS), y=avg_returns 
                                 ,name="Indivial Stock"
                                 ,mode="markers+text"
@@ -295,7 +281,7 @@ else:
                                 ))
 
         fig.add_trace(go.Scatter(x=[min_vol_portf_vol,max_sharp_portf_vol], y=[min_vol_portf_rtn,max_sharp_portf_rtn]
-                                ,name="Special portfolio"
+                                ,name=["Minimum variance portfolio","Maximum sharp ratio porfolio"]
                                 ,mode="markers"
                                 ,marker_symbol=[204,22]
                                 ,text = ["Minimum variance portfolio","Maximum sharp ratio porfolio"]
