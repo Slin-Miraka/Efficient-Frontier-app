@@ -281,7 +281,7 @@ else:
                                 ))
 
         fig.add_trace(go.Scatter(x=[min_vol_portf_vol,max_sharp_portf_vol], y=[min_vol_portf_rtn,max_sharp_portf_rtn]
-                                ,name=["Minimum variance portfolio","Maximum sharp ratio porfolio"]
+                                ,name="Special portfolios"
                                 ,mode="markers"
                                 ,marker_symbol=[204,22]
                                 ,text = ["Minimum variance portfolio","Maximum sharp ratio porfolio"]
