@@ -20,7 +20,7 @@ RF = st.sidebar.number_input(
                             min_value=0.00,
                             value=0.015,
                             step=0.0001,
-                            format="%i",
+                            format="%.4f",
                             )
 N_DAYS = 252
 RISKY_ASSETS.sort()
