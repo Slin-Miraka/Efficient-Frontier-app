@@ -238,13 +238,13 @@ else:
                                 ))
         fig.add_trace(go.Scatter(x=af['sigma'] , y=af['sml']
                         ,name="Capital Allocation line"
-                        ,mode="lines+markers"
-                        ,opacity=0.9
-                        ,marker=dict(size=3
-                                    ,color = 3
-                                    ,line=dict(width=1
-                                            ,color = 3 
-                                                )
+                        ,mode="lines"
+                        ,opacity=0.7
+                        #,marker=dict(size=3
+                                  #  ,color = 3
+                                  #  ,line=dict(width=1
+                                   #         ,color = 3 
+                                   #             )
                                     )
                         ))
         fig.add_trace(go.Scatter(x= [0], y=[RF]
