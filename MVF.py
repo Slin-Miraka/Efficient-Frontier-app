@@ -57,7 +57,7 @@ else:
     prices_df = prices_df_cn.merge(prices_df,left_on=prices_df_cn.index,right_on=prices_df.index,how= 'left')
     prices_df = prices_df.set_index("key_0")
 
-returns_df = np.log(prices_df.pct_change() + 1).dropna()
+returns_df = prices_df.pct_change().dropna()#np.log(prices_df.pct_change() + 1).dropna()
 
 
 
@@ -66,7 +66,7 @@ if len(RISKY_ASSETS) != len(set(RISKY_ASSETS)):
 elif len(RISKY_ASSETS) < 2:
     st.error('Error: The portfolio is expected to include at least two assets.')
 else:
-    if st.button("View stock returns over the period"):
+    if st.button("View stock Price over the period"):
         fig = go.Figure()
         if isinstance(returns_df, pd.Series) == True:
             fig.add_trace(go.Scatter(x=returns_df.index, y=returns_df
@@ -75,13 +75,13 @@ else:
                         ))
         else: 
             for idx, col_name in enumerate(returns_df):
-                fig.add_trace(go.Scatter(x=returns_df.index, y=returns_df.iloc[:,idx]
+                fig.add_trace(go.Scatter(x=returns_df.index, y=prices_df.iloc[:,idx]
                             ,name=returns_df.columns[idx]
                             
                             ))
-        fig.update_layout(height=500, width=800, title_text="Stock Returns")
+        fig.update_layout(height=500, width=800, title_text="Stock price")
         fig.update_xaxes(title_text="Date")
-        fig.update_yaxes(title_text="Stock returns")
+        fig.update_yaxes(title_text="Stock price")
                 
         st.plotly_chart(fig)
 
