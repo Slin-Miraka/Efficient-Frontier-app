@@ -66,7 +66,7 @@ if len(RISKY_ASSETS) != len(set(RISKY_ASSETS)):
 elif len(RISKY_ASSETS) < 2:
     st.error('Error: The portfolio is expected to include at least two assets.')
 else:
-    if st.button("View stock Price over the period"):
+    if st.button("View Stock Price over the period"):
         fig = go.Figure()
         if isinstance(returns_df, pd.Series) == True:
             fig.add_trace(go.Scatter(x=returns_df.index, y=returns_df
@@ -81,7 +81,7 @@ else:
                             ))
         fig.update_layout(height=500, width=800, title_text="Stock price")
         fig.update_xaxes(title_text="Date")
-        fig.update_yaxes(title_text="Stock price")
+        fig.update_yaxes(title_text="Stock Price")
                 
         st.plotly_chart(fig)
 
