@@ -236,19 +236,29 @@ else:
                                                         )
                                             )
                                 ))
-        fig.add_trace(go.Scatter(x= [0], y=[RF]
-                        ,name="Risk-free asset"
-                        ,mode="markers"
-                        ,opacity=0.8
-                        ,marker_symbol=[204,22]
-                        ,text = ["Risk-free asset"]
-                        ,marker=dict(size= 8
-                                    ,colorscale='Viridis'
-                                    ,color = "green"
+        fig.add_trace(go.Scatter(x=af['sigma'] , y=af['sml']
+                        ,name="Capital Allocation line"
+                        ,mode="lines+markers"
+                        ,opacity=0.9
+                        ,marker=dict(size=3
+                                    ,color = 3
                                     ,line=dict(width=1
+                                            ,color = 3 
                                                 )
                                     )
                         ))
+        fig.add_trace(go.Scatter(x= [0], y=[RF]
+                ,name="Risk-free asset"
+                ,mode="markers"
+                ,opacity=0.8
+                ,marker_symbol=[204]
+                ,marker=dict(size= 8
+                            ,colorscale='Viridis'
+                            ,color = "green"
+                            ,line=dict(width=1
+                                        )
+                            )
+                ))
         fig.add_trace(go.Scatter(x=vols_range, y=rtns_range
                                 ,name="Edge"
                                 ,mode="lines+markers"
