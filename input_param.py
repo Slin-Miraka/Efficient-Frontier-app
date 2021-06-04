@@ -21,8 +21,8 @@ def get_list():
 
 def get_date():
     today = datetime.date.today()
-    start_date = st.sidebar.date_input("Selecting the Start date",datetime.date(2020,1,1))
-    end_date = st.sidebar.date_input("Selecting the End date",today)
+    start_date = st.sidebar.date_input("Selecting the Start date",datetime.date(2017,12,29))
+    end_date = st.sidebar.date_input("Selecting the End date",datetime.date(2020,12,31))
     if start_date < end_date:
         st.sidebar.success('Start date: `%s`\n\nEnd date:`%s`' % (start_date, end_date))
     else:
