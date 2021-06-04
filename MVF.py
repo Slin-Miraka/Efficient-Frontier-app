@@ -15,9 +15,13 @@ st.sidebar.header('Welcome！ o(*￣▽￣*)ブ')
 author = "Miraka"
 RISKY_ASSETS = get_list()
 N_PORTFOLIOS =  get_portf_num()
-RF = st.sidebar.number_input("Input Annualized risk-free rate",0.015)
-v = st.number_input('Test', value=1.)
-st.write(v, type(v))
+RF = st.sidebar.number_input(
+                            label="Input Annualized risk-free rate",
+                            min_value=0.00,
+                            value=0.015,
+                            step=0.0001,
+                            format="%i",,
+                            )
 N_DAYS = 252
 RISKY_ASSETS.sort()
 START_DATE,END_DATE = get_date()
