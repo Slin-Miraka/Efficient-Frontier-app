@@ -152,11 +152,11 @@ else:
         ###################################################################
         min_ret_ind = np.argmin(portf_results_df.returns)
         min_ret_portf = portf_results_df.iloc[min_ret_ind,:]
-        min_ret = round(min_ret_portf[0],1)
+        min_ret = round(min_ret_portf[0],6)
 
         max_ret_ind = np.argmax(portf_results_df.returns)
         max_ret_portf = portf_results_df.iloc[max_ret_ind,:]
-        max_ret = round(max_ret_portf[0],1)
+        max_ret = round(max_ret_portf[0],6)
 
         max_sharp_ind = np.argmax(portf_results_df.sharpe_ratio)
 
