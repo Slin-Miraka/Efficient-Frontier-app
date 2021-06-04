@@ -263,7 +263,12 @@ else:
                                 ,name="Efficient Frontier"
                                 ,mode="lines+markers"
                                 ,opacity=0.9
-
+                                ,marker=dict(size=2
+                                            ,color = 1
+                                            ,line=dict(width=1
+                                                    ,color = 1
+                                                        )
+                                            )
                                 ))
 
         fig.add_trace(go.Scatter(x=np.sqrt(returns_df.var() * N_DAYS), y=avg_returns 
