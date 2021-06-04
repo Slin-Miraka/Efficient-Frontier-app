@@ -242,7 +242,6 @@ else:
                         ,opacity=0.8
                         ,marker_symbol=[204,22]
                         ,text = ["Risk-free asset"]
-                        ,opacity=1
                         ,marker=dict(size= 8
                                     ,colorscale='Viridis'
                                     ,color = "green"
