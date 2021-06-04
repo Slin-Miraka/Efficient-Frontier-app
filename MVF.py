@@ -240,10 +240,14 @@ else:
                         ,name="Risk-free asset"
                         ,mode="markers"
                         ,opacity=0.8
-                        ,marker=dict(size=5
+                        ,marker_symbol=[204,22]
+                        ,text = ["Risk-free asset"]
+                        ,opacity=1
+                        ,marker=dict(size= 8
+                                    ,colorscale='Viridis'
                                     ,color = "green"
-                                    
-                                    #,colorbar=dict(thickness=5, tickvals=[-5, 5], ticktext=['Low', 'High'], outlinewidth=0)
+                                    ,line=dict(width=1
+                                                )
                                     )
                         ))
         fig.add_trace(go.Scatter(x=vols_range, y=rtns_range
