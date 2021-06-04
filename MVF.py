@@ -236,7 +236,7 @@ else:
                                                         )
                                             )
                                 ))
-        fig.add_trace(go.Scatter(x=0, y=RF
+        fig.add_trace(go.Scatter(x= [0], y=[RF]
                         ,name="Risk-free asset"
                         ,mode="markers"
                         ,opacity=0.8
