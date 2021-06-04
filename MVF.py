@@ -242,7 +242,7 @@ else:
                         ,opacity=0.8
                         ,marker=dict(size=5
                                     ,color = "green"
-                                    ,colorscale='Viridis'
+                                    
                                     #,colorbar=dict(thickness=5, tickvals=[-5, 5], ticktext=['Low', 'High'], outlinewidth=0)
                                     )
                         ))
