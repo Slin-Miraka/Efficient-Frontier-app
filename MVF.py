@@ -15,7 +15,7 @@ st.sidebar.header('Welcome！ o(*￣▽￣*)ブ')
 author = "Miraka"
 RISKY_ASSETS = get_list()
 N_PORTFOLIOS =  get_portf_num()
-RF = st.sidebar.text_input("Input Annualized risk-free rate","1.5%")
+RF = st.sidebar.text_input("Input Annualized risk-free rate","0.015")
 RF = float(RF)
 st.sidebar.write("Default annualized risk-free rate: 1.5%")
 N_DAYS = 252
