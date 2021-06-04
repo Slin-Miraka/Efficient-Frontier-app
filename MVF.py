@@ -98,8 +98,14 @@ else:
 
         #Simulate random portfolio weights:
         np.random.seed(42)
+        np.random.seed(42)
         weights = np.random.random(size=(N_PORTFOLIOS, n_assets))
-        weights /= np.sum(weights, axis=1)[:, np.newaxis] #broadcast the numpy.ndarray to a higher dimension
+        weights /= np.sum(weights, axis=1)[:, np.newaxis]
+        weights[0] = [1,0,0,0,0] 
+        weights[1] = [0,1,0,0,0] 
+        weights[2] = [0,0,1,0,0] 
+        weights[3] = [0,0,0,1,0] 
+        weights[4] = [0,0,0,0,1]
 
         #Calculate the portfolio metrics:
         portf_rtns = np.dot(weights, avg_returns)
