@@ -116,7 +116,7 @@ else:
         for i in range(0, len(weights)):
             portf_vol.append(np.sqrt(np.dot(weights[i].T, np.dot(cov_mat, weights[i]))))
         portf_vol = np.array(portf_vol)
-        portf_sharpe_ratio = portf_rtns / portf_vol
+        portf_sharpe_ratio = (portf_rtns - RF) / portf_vol
 
         #Create a DataFrame containing all the data:
         portf_results_df = pd.DataFrame({'returns': portf_rtns,
@@ -168,7 +168,11 @@ else:
         min_vol_portf_rtn = portf_results_df.iloc[min_vol_ind,:]
         otm_ret = round(min_vol_portf_rtn[0],1)
         #####################################################################
-
+        slope = portf_sharpe_ratio.max()
+        x = list(range(3000))
+        af = pd.DataFrame({'x': x})
+        af['sigma'] = af['x']/10000
+        af['sml'] = af['sigma'] * slope + RF
 
 
         #4. Define the considered range of returns:
@@ -228,6 +232,18 @@ else:
                                                         )
                                             )
                                 ))
+        fig.add_trace(go.Scatter(x=0, y=RF
+                        ,name="Risk-free asset"
+                        ,mode="markers"
+                        ,opacity=0.8
+                        ,marker=dict(size=5
+                                    ,color = "green"
+                                    ,colorscale='Viridis'
+                                    #,colorbar=dict(thickness=5, tickvals=[-5, 5], ticktext=['Low', 'High'], outlinewidth=0)
+                                    ,line=dict(width=1
+                                                )
+                                    )
+                        ))
         fig.add_trace(go.Scatter(x=vols_range, y=rtns_range
                                 ,name="Edge"
                                 ,mode="lines+markers"
