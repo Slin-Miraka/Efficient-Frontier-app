@@ -5,7 +5,7 @@ import unicodedata
 import pandas as pd
 import numpy as np
 
-list_ = ['WDMF.AX', 'VDGR.AX','UMAX.AX','ROBO.AX']
+list_ = ['WDMF.AX', 'VDGR.AX','UMAX.AX','ROBO.AX','QFN.AX'] 
 
 
 def get_list():
