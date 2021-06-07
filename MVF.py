@@ -172,11 +172,7 @@ else:
         range_for_cal = round(max_vol_portf_rtn[1]+0.1,1)
         range_for_cal = range_for_cal *10000
         #####################################################################
-        slope = portf_sharpe_ratio.max()
-        x = list(range(int(range_for_cal)))
-        af = pd.DataFrame({'x': x})
-        af['sigma'] = af['x']/10000
-        af['sml'] = af['sigma'] * slope + RF
+
 
 
         #4. Define the considered range of returns:
@@ -218,6 +214,12 @@ else:
         max_sharp_portf_rtn = rtns_range[max_sharp_ind]
         max_sharp_portf_vol = efficient_portfolios[max_sharp_ind]['fun']
         max_sharp_portf_sharp = (max_sharp_portf_rtn - RF)/max_sharp_portf_vol
+        
+        slope = max_sharp_portf_sharp.max()
+        x = list(range(int(range_for_cal)))
+        af = pd.DataFrame({'x': x})
+        af['sigma'] = af['x']/10000
+        af['sml'] = af['sigma'] * slope + RF
 
 
 
