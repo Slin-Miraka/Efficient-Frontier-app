@@ -33,6 +33,8 @@ st.write("Edit by: ",author)
 col1, col2 = st.beta_columns(2)
 if col1.button("Clean the portfolio list"):
   RISKY_ASSETS = []
+elif col2.button("Restore the portfolio list"):
+  RISKY_ASSETS = get_list()
   
 st.write("**Current components of the portfolio**",RISKY_ASSETS)
 
