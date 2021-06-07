@@ -30,9 +30,6 @@ n_assets = len(RISKY_ASSETS)
 st.title("Efficient Frontier APP")
 st.write("Edit by: ",author)
 
-col1, col2 = st.beta_columns(2)
-if col1.button("Clean the portfolio list"):
-  RISKY_ASSETS = []
   
 st.write("**Current components of the portfolio**",RISKY_ASSETS)
 
