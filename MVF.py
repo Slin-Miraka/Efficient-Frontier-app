@@ -38,7 +38,9 @@ t = sum([is_number(i) for i in RISKY_ASSETS])
 cn_code = RISKY_ASSETS[:t]
 us_code = RISKY_ASSETS[t:]
 
-
+col1, col2 = st.beta_columns(2)
+if col1.button("Clean the portfolio list"):
+  RISKY_ASSETS = []:
 
 
 
@@ -65,6 +67,7 @@ else:
     prices_df = prices_df.set_index("key_0")
 
 returns_df = prices_df.pct_change().dropna()#np.log(prices_df.pct_change() + 1).dropna()
+
 
 
 
