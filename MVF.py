@@ -166,9 +166,13 @@ else:
         min_vol_ind = np.argmin(portf_results_df.volatility)
         min_vol_portf_rtn = portf_results_df.iloc[min_vol_ind,:]
         otm_ret = round(min_vol_portf_rtn[0],1)
+        
+        max_vol_ind = np.argmax(portf_results_df.volatility)
+        max_vol_portf_rtn = portf_results_df.iloc[max_vol_ind,:]
+        range_for_cal = round(min_vol_portf_rtn[1]+0.1,1)
         #####################################################################
         slope = portf_sharpe_ratio.max()
-        x = list(range(5000))
+        x = list(range(range_for_cal*10000))
         af = pd.DataFrame({'x': x})
         af['sigma'] = af['x']/10000
         af['sml'] = af['sigma'] * slope + RF
