@@ -18,8 +18,8 @@ def get_list():
     col1, col2 = st.sidebar.beta_columns(2)
     if col1.button("Drop Tickers"):   
         list_.remove(drop)
-    elif col2.button("Clean Tickers"):
-        list_ = []
+    #elif col2.button("Clean Tickers"):
+       # list_ = []
     return list_
 
 def get_date():
