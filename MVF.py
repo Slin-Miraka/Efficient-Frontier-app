@@ -168,7 +168,7 @@ else:
         otm_ret = round(min_vol_portf_rtn[0],1)
         #####################################################################
         slope = portf_sharpe_ratio.max()
-        x = list(range(3000))
+        x = list(range(30000))
         af = pd.DataFrame({'x': x})
         af['sigma'] = af['x']/10000
         af['sml'] = af['sigma'] * slope + RF
