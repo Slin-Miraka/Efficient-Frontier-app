@@ -15,7 +15,8 @@ def get_list():
     if st.sidebar.button("Add Tickers"):
         list_.append(symbol)
     drop = st.sidebar.selectbox("Drop a Ticker from the current portfolio",np.sort(list_))
-    if st.sidebar.button("Drop Tickers"):   
+    col1, col2 = st.sidebar.beta_columns(2)
+    if col1.button("Drop Tickers"):   
         list_.remove(drop)
     return list_
 
