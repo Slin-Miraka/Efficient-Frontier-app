@@ -215,7 +215,7 @@ else:
         max_sharp_portf_vol = efficient_portfolios[max_sharp_ind]['fun']
         max_sharp_portf_sharp = (max_sharp_portf_rtn - RF)/max_sharp_portf_vol
         
-        slope = max_sharp_portf_sharp.max()
+        slope = max_sharp_portf_sharp
         x = list(range(int(range_for_cal)))
         af = pd.DataFrame({'x': x})
         af['sigma'] = af['x']/10000
