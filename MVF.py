@@ -169,7 +169,7 @@ else:
         
         max_vol_ind = np.argmax(portf_results_df.volatility)
         max_vol_portf_rtn = portf_results_df.iloc[max_vol_ind,:]
-        range_for_cal = round(min_vol_portf_rtn[1]+0.1,1)
+        range_for_cal = round(max_vol_portf_rtn[1]+0.1,1)
         #####################################################################
         slope = portf_sharpe_ratio.max()
         x = list(range(range_for_cal*10000))
