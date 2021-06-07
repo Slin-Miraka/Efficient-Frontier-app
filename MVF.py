@@ -173,7 +173,7 @@ else:
         range_for_cal = range_for_cal *10000
         #####################################################################
         slope = portf_sharpe_ratio.max()
-        x = list(range(range_for_cal))
+        x = list(range(int(range_for_cal)))
         af = pd.DataFrame({'x': x})
         af['sigma'] = af['x']/10000
         af['sml'] = af['sigma'] * slope + RF
