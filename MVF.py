@@ -212,12 +212,12 @@ else:
         min_vol_ind = np.argmin(vols_range)
         min_vol_portf_rtn = rtns_range[min_vol_ind]
         min_vol_portf_vol = efficient_portfolios[min_vol_ind]['fun']
-        min_vol_portf_sharp = min_vol_portf_rtn/min_vol_portf_vol
+        min_vol_portf_sharp = (min_vol_portf_rtn -RF)/min_vol_portf_vol
 
-        max_sharp_ind = np.argmax((rtns_range/vols_range))
+        max_sharp_ind = np.argmax(((rtns_range - RF)/vols_range))
         max_sharp_portf_rtn = rtns_range[max_sharp_ind]
         max_sharp_portf_vol = efficient_portfolios[max_sharp_ind]['fun']
-        max_sharp_portf_sharp = max_sharp_portf_rtn/max_sharp_portf_vol
+        max_sharp_portf_sharp = (max_sharp_portf_rtn - RF)/max_sharp_portf_vol
 
 
 
